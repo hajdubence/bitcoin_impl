@@ -18,7 +18,7 @@ public class Main {
 
         for (int i = 0; i < 6; i++) {
             Block block = new Block(blockChain);
-            block.mineBlock(15);
+            block.mineBlock(16);
             System.out.println("block added to blockChain: " + blockChain.addBlock(block));
         }
 

@@ -3,11 +3,13 @@ import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import java.io.IOException;
+import java.time.Instant;
 import java.util.Random;
 
 public class Block {
 
     public int no;
+    public long timestamp;
     public int nonce;
     @JsonIgnore
     public byte[] prevHash;
@@ -23,13 +25,16 @@ public class Block {
     }
 
 
+
     Block() {
+        timestamp = Instant.now().getEpochSecond();
         merkleTree = new MerkleTree();
         Random r = new Random();
         nonce = r.nextInt();
     }
 
     Block(BlockChain bc) {
+        timestamp = Instant.now().getEpochSecond();
         merkleTree = new MerkleTree();
         Random r = new Random();
         nonce = r.nextInt();
